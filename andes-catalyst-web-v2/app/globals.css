@@ -1,26 +1,130 @@
-@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import "tw-animate-css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* @custom-variant dark (&:is(.dark *)); */
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Inter', sans-serif;
+  background: #050816;
+  color: #F5F7FA;
+  overflow-x: hidden;
+
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* =========================
+   TYPOGRAPHY
+========================= */
+/* =========================
+   TYPOGRAPHY
+========================= */
+
+.display-xl {
+  font-size: clamp(4rem, 8vw, 7rem);
+  font-weight: 900;
+  line-height: 0.92;
+  letter-spacing: -0.05em;
+}
+
+.display-lg {
+  font-size: clamp(3rem, 6vw, 5.5rem);
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+}
+
+.body-lg {
+  font-size: 1.125rem;
+  line-height: 1.8;
+}
+
+@media (min-width: 768px) {
+  .body-lg {
+    font-size: 1.25rem;
+  }
+}
+
+.caption {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-weight: 500;
+}
+/* =========================
+   GLASS
+========================= */
+
+.glass-panel {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  backdrop-filter: blur(24px);
+
+  border-radius: 24px;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.btn-primary {
+  background: linear-gradient(
+    135deg,
+    #00A3A3 0%,
+    #312E81 100%
+  );
+
+  color: white;
+
+  padding: 14px 24px;
+
+  border-radius: 14px;
+
+  font-weight: 600;
+
+  transition:
+    transform .3s ease,
+    opacity .3s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background: rgba(255,255,255,0.03);
+
+  border: 1px solid rgba(255,255,255,0.08);
+
+  color: #F5F7FA;
+
+  padding: 14px 24px;
+
+  border-radius: 14px;
+
+  transition: background .3s ease;
+}
+
+.btn-secondary:hover {
+  background: rgba(255,255,255,0.06);
+}
+
+/* =========================
+   GRID OVERLAY
+========================= */
+
+.grid-overlay {
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+
+  background-size: 80px 80px;
 }
